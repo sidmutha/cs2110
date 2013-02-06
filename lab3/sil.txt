@@ -1,0 +1,31 @@
+From ancient Greece to Einstein
+
+Archimedes was possibly the first scientist to describe nature with axioms (or principles) and then to deduce new results from them. He thus tried to describe "everything" starting from a few axioms. Any "theory of everything" is similarly expected to be based on axioms and to deduce all observable phenomena from them.
+
+The concept of 'atom', introduced by Democritus, unified all phenomena observed in nature as the motion of atoms. In ancient Greek times philosophers speculated that the apparent diversity of observed phenomena was due to a single type of interaction, namely the collisions of atoms. Following atomism, the mechanical philosophy of the 17th century posited that all forces could be ultimately reduced to contact forces between the atoms, then imagined as tiny solid particles.[4]
+
+In the late 17th century, Isaac Newton's description of the long-distance force of gravity implied that not all forces in nature result from things coming into contact. Newton's work in his Principia dealt with this in a further example of unification, in this case unifying Galileo's work on terrestrial gravity, Kepler's laws of planetary motion and the phenomenon of tides by explaining them with one single law: the law of universal gravitation.
+
+In 1814, building on these results, Laplace famously suggested that a sufficiently powerful intellect could, if it knew the position and velocity of every particle at a given time, along with the laws of nature, calculate the position of any particle at any other time:
+
+   An intellect which at a certain moment would know all forces that set nature in motion, and all positions of all items of which nature is composed, if this intellect were also vast enough to submit these data to analysis, it would embrace in a single formula the movements of the greatest bodies of the universe and those of the tiniest atom; for such an intellect nothing would be uncertain and the future just like the past would be present before its eyes.
+    — Essai philosophique sur les probabilités, Introduction. 1814
+
+Laplace thus envisaged a combination of gravitation and mechanics as a theory of everything. Modern quantum mechanics implies that uncertainty is inescapable, and thus that Laplace's vision needs to be amended: a theory of everything must include gravitation and quantum mechanics.
+
+In 1820, Hans Christian Ørsted discovered a connection between electricity and magnetism, triggering decades of work that culminated in 1865, in James Clerk Maxwell's theory of electromagnetism. During the 19th and early 20th centuries, it gradually became apparent that many common examples of forces – contact forces, elasticity, viscosity, friction, and pressure – result from electrical interactions between the smallest particles of matter.
+
+In his experiments of 1849–50, Michael Faraday was the first to search for a unification of gravity with electricity and magnetism.[5] However, he found no connection.
+
+In 1900, David Hilbert published a famous list of mathematical problems. In Hilbert's sixth problem, he challenged researchers to find an axiomatic basis to all of physics. In this problem he thus asked for what today would be called a theory of everything.
+
+In the late 1920s, the new quantum mechanics showed that the chemical bonds between atoms were examples of (quantum) electrical forces, justifying Dirac's boast that "the underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known".[6]
+
+After 1915, when Albert Einstein published the theory of gravity (general relativity), the search for a unified field theory combining gravity with electromagnetism started again with renewed intensity. At the time, it seemed plausible that no other fundamental forces exist. Prominent contributors were Gunnar Nordström, Hermann Weyl, Arthur Eddington, Theodor Kaluza, Oskar Klein, and most notably, Albert Einstein and his collaborators. Einstein intensely searched for such a unifying theory during the last decades of his life. However, none of these attempts were successful.[7].
+Twentieth century and the nuclear interactions
+
+In the twentieth century, the search for a unifying theory was interrupted by the discovery of the strong and weak nuclear forces (or interactions), which differ both from gravity and from electromagnetism. A further hurdle was the acceptance that in a ToE, quantum mechanics had to be incorporated from the start, rather than emerging as a consequence of a deterministic unified theory, as Einstein had hoped.
+
+Gravity and electromagnetism could always peacefully coexist as entries in a list of classical forces, but for many years it seemed that gravity could not even be incorporated into the quantum framework, let alone unified with the other fundamental forces. For this reason, work on unification, for much of the twentieth century, focused on understanding the three "quantum" forces: electromagnetism and the weak and strong forces. The first two were combined in 1967–68 by Sheldon Glashow, Steven Weinberg, and Abdus Salam into the "electroweak" force.[8] Electroweak unification is a broken symmetry: the electromagnetic and weak forces appear distinct at low energies because the particles carrying the weak force, the W and Z bosons, have non-zero masses of 80.4 GeV/c2 and 91.2 GeV/c2, whereas the photon, which carries the electromagnetic force, is massless. At higher energies Ws and Zs can be created easily and the unified nature of the force becomes apparent.
+
+While the strong and electroweak forces peacefully coexist in the Standard Model of particle physics, they remain distinct. So far, the quest for a theory of everything is thus unsuccessful on two points: neither a unification of the strong and electroweak forces – which Laplace would have called `contact forces' – has been achieved, nor a unification of these forces with gravitation has been achieved.

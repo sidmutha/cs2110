@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include "doubly.c"
+#include"packet.h"
+main(){
+  d_list_item* head;
+  d_list_item* search_r;
+  char sendr[10], rcvr[10], msg[30];
+  packet pcket;
+
+  head =  doubly_create_list();
+ 
+  printf("\nEnter sender: ");
+  gets(sendr);  
+  printf("\nEnter receiver: ");
+  gets(rcvr);  
+  printf("\nEnter message: ");
+  gets(msg); 
+
+  doubly_add_item(head,pcket);
+
+ printf("\nEnter sender: ");
+  gets(sendr);  
+  printf("\nEnter receiver: ");
+  gets(rcvr);  
+  printf("\nEnter message: ");
+  gets(msg); 
+
+  doubly_add_item(head,pcket);
+
+  singly_print_all(head);
+  /*
+  printf("\n++++++++++++Search+++++++");
+
+printf("\nEnter sender: ");
+  gets(sendr);  
+  search_r = singly_search(head, 's', "s\000\000\000\000\000\000\000\000");
+  if (!(search_r == 0)){ 
+printf("\nReceiver: %s",search_r->next->pckt.receiver);
+    }
+    else printf("\nSorry, no results\n");
+  */
+}

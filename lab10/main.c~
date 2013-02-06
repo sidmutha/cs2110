@@ -1,0 +1,176 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nd{
+  int deg, set;
+  int* nbr;
+} node;
+
+int n, *setA /*0*/, *setB /*1*/, maxDegNode = 0, *matrix;
+node* Nodes;
+
+/*
+node *quicksort(node* array, int len){                //2
+  if (len <= 1) return array;
+  else {
+    node *arr_low, *arr_high;                        //1
+    int i,l=0,h=0, mid = len/2;
+    node pivot;                                      //1 
+    arr_low = malloc(len * sizeof(point));
+    arr_high = malloc(len * sizeof(point));
+    pivot = array[mid];
+    for(i=0;i<len;i++){
+      if(i!=mid){
+	if(array[i].deg <= pivot.deg){               //2
+	  arr_low[l] = array[i];
+	  l++;
+	} 
+	else {
+	  arr_high[h] = array[i];
+	  h++;	
+	}
+      }
+    }
+    arr_low = quicksort(arr_low, l);
+    arr_high = quicksort(arr_high, h);
+    
+    for(i = 0;i < h; i++){
+      array[i] = arr_high[i];
+    }
+    
+    array[h] = pivot;
+    
+    for(i = 0; i < l; i++){
+      array[h + i + 1] = arr_low[i];
+    }
+  
+     
+  }
+  return array;
+}
+*/
+
+void printMatrix(){
+  int i, j;
+  for(j = 0; j < n; j++){
+    for(i = 0; i < n; i++){
+      printf("%d ", matrix[i + n*j]);
+    }
+    printf("\n");
+  }
+}
+
+void makeSymmetric(){
+  int i, j;
+  for(i = 0; i < n; i++){
+    for(j = i; j < n; j++){ //optimisation!
+      matrix[i + n * j] = matrix[j + n * i] = (matrix[i + n * j] || matrix[j + n * i]);
+    }
+  }
+}
+
+int* createMatrix(int n){
+  int *matrix = calloc(n * n, sizeof(int));
+  return matrix;
+}
+
+int findNextMaxDegNode(){
+  int i, max = 0, ind = -1;
+  for(i = 0; i < n; i++){
+    if(Nodes[i].set == 2){
+      if(Nodes[i].deg >= max){
+	ind = i;
+      }
+    }
+  }
+  return ind;
+}
+
+
+void assignSet(int vert){
+   int a = 0, b = 0, c, d, i;
+  if(Nodes[vert].deg != 0){
+    //counting the number of nbrs in set A, B
+    for(i = 0; i < n; i++){
+      if(Nodes[vert].nbr[i] == 1){
+	if(Nodes[i].set == 0) a++;
+	else if(Nodes[i].set == 1) b++;
+      }
+    }
+    //  printf("a: %d b:%d\n",a, b);
+    if(a >= b) {
+      c = 0;
+      d = 1;
+    }
+    else {
+      c = 1;
+      d = 0;
+    }
+    Nodes[vert].set = d;
+    for(i = 0; i < n; i++){
+      if(Nodes[vert].nbr[i] == 1){
+	if(Nodes[i].set == 2){
+	  Nodes[i].set = c;
+	}
+      }
+    }
+  }
+  else {
+    Nodes[vert].set = 0;
+  }
+}
+
+int main(int argc, char** argv){
+  FILE* fptr;
+  int maxDegNode, i, j, k, bridge = 0;
+  fptr = fopen(argv[1], "r");
+  fscanf(fptr,"%d",&n);
+  
+  Nodes = calloc(n, sizeof(node));
+  matrix = createMatrix(n);
+    
+  for(i = 0; i < n * n; i++) {
+    fscanf(fptr, "%d", &matrix[i]);
+  }
+  fclose(fptr);
+    
+  makeSymmetric(matrix, n);
+  printMatrix();
+  
+  //assigning degrees to the nodes
+  for(j = 0; j < n; j++) {
+    Nodes[j].deg = 0;
+    Nodes[j].nbr = calloc(n, sizeof(int));
+    Nodes[j].set = 2;
+    for(k = 0; k < n; k++) {
+      Nodes[j].nbr[k] = matrix[k + n*j];
+      if(Nodes[j].nbr[k] == 1){
+	  Nodes[j].deg++;
+	}
+      }
+    }
+  
+  while((maxDegNode = findNextMaxDegNode()) != -1){
+    assignSet(maxDegNode);
+  }    
+ 
+  for(i = 0; i < n; i++){
+    printf("%d\n", Nodes[i].deg);
+  }
+  
+  //printing the final results with the list of bridge edges
+  for(i = 0; i < n; i++){
+    for(j = i; j < n; j++){
+      if(Nodes[i].nbr[j] == 1){
+	if(Nodes[j].set != Nodes[i].set){
+	  printf("(%d, %d)\n", i, j);
+	  bridge++;
+	}
+      }
+    }
+  }
+  
+  printf("No. of Bridges: %d\n", bridge);
+  
+  return 0;
+}

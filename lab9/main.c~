@@ -1,0 +1,118 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct nd{
+  int colour; //colour :- 0:blue, 1: red, 2:none
+  int nbr[10];
+  } node;
+
+int bipartite = 1, cyclic = 0, n, *matrix, counter = 1;
+node *Node; 
+
+int* createMatrix(int n){
+  int *matrix = calloc(n * n, sizeof(int));
+  return matrix;
+}
+
+node* createNode(){
+  node *Node;
+  Node = malloc(sizeof(node));
+  return Node;
+}
+
+void printMatrix(){
+  int i, j;
+  for(j = 0; j < n; j++){
+    for(i = 0; i < n; i++){
+      printf("%d ", matrix[i + n*j]);
+    }
+    printf("\n");
+  }
+}
+
+void makeSymmetric(){
+  int i, j;
+  for(i = 0; i < n; i++){
+    for(j = i; j < n; j++){ //optimisation!
+      matrix[i + n * j] = matrix[j + n * i] = (matrix[i + n * j] || matrix[j + n * i]);
+    }
+  }
+}
+/*
+void someFunction(int i){
+  int j;
+  for(j=0; j<n; j++){
+    if(matrix[i + n*j] == 1){
+      if(colorArray[j] == 2){
+	colorArray[j] = !colorArray[i];
+	}
+      else{
+	bipartite = 0;
+	
+      }
+    }
+  }
+}
+
+*/
+
+void someFunction(int i, int c){ //i = current node to check, c = from where has the pointer come
+  int k; 
+  for(k = 0; k < n; k++){
+    if(k!=c){
+      if(Node[i].nbr[k] == 1){
+	if(Node[k].colour == 2){
+	  if(Node[i].colour == 0) Node[k].colour = 1;
+	  else Node[k].colour = 0;
+	  someFunction(k, i);
+	  counter++;
+	}
+	else{
+	  cyclic = 1;
+	  if(Node[k].colour = Node[i].colour){
+	    bipartite = 0;
+	  }
+	}  
+      }
+    }
+  }
+}
+
+int main(int argc, char **argv) {
+  int  i, j, k;
+  FILE* fptr;
+    fptr = fopen(argv[1], "r");
+    fscanf(fptr,"%d",&n);
+  
+  Node = calloc(n, sizeof(node));
+  for(i = 0; i < n; i++) {
+    Node[i].colour = 2;
+    Node[i].nbr;//10
+  }
+  matrix = createMatrix(n);
+  
+  for(i = 0; i < n * n; i++) {
+    fscanf(fptr, "%d", &matrix[i]);
+  }
+  fclose(fptr);
+  
+  makeSymmetric(matrix, n);
+  
+  for(j = 0; j < n; j++) {
+    for(k = 0; k < n; k++) {
+      Node[j].nbr[k] = matrix[k + n*j];
+    }
+  }
+  Node[0].colour = 0;
+  printMatrix(matrix, n);
+  someFunction(0, -1);
+  if(bipartite == 1) printf("Bipartite\n");
+  else printf("Not Bipartite\n");
+  if(cyclic == 1) printf("Cyclic\n");
+  else printf("Not Cyclic\n");
+  printf("%d\n", counter);
+  free(matrix);
+  free(Node);
+  
+  return 0;
+}

@@ -1,0 +1,15 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<stdef.h>
+main(){
+FILE *fptr;
+char tline[100];
+fptr = fopen ("sillyfile.txt", "r");
+/* check it's open */
+while (fgets (tline, 100, fptr) != NULL) {
+printf ("%s", tline); // Print it
+}
+fclose(fptr);
+
+
+}
